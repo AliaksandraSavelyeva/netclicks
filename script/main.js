@@ -9,8 +9,20 @@ hamburger.addEventListener('click', () => {
 });
 
 document.addEventListener('click', (event) => {
-    if(!event.target.closest('.left-menu')) {
+    const target = event.target;
+    if(!target.closest('.left-menu')) {
         leftMenu.classList.remove('openMenu');
         hamburger.classList.remove('open');
+    }
+});
+
+// dropdown open/close
+leftMenu.addEventListener('click', (event) => {
+    const target = event.target;
+    const dropdown = target.closest('.dropdown');
+    if (dropdown) {
+        dropdown.classList.toggle('active');
+        leftMenu.classList.add('openMenu');
+        hamburger.classList.add('open');
     }
 });
